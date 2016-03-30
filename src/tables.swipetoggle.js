@@ -282,6 +282,11 @@
 			.bind( "tablesawcolumns.swipetoggle", function(){
 				$prevBtn[ canAdvance( getPrev() ) ? "removeClass" : "addClass" ]( hideBtn );
 				$nextBtn[ canAdvance( getNext() ) ? "removeClass" : "addClass" ]( hideBtn );
+				if (!canAdvance(getPrev()) && !canAdvance(getNext())) {		
+					$btns.parent().addClass("hide-swipe-btns");		
+				} else {		
+					$btns.parent().removeClass("hide-swipe-btns");			
+				}
 			})
 			.bind( "tablesawnext.swipetoggle", function(){
 				advance( true );

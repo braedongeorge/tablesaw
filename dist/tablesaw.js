@@ -1,6 +1,6 @@
-/*! Tablesaw - v2.0.2 - 2015-10-28
+/*! Tablesaw - v2.0.2 - 2016-03-30
 * https://github.com/filamentgroup/tablesaw
-* Copyright (c) 2015 Filament Group; Licensed  */
+* Copyright (c) 2016 Filament Group; Licensed  */
 /*
 * tablesaw: A set of plugins for responsive tables
 * Stack and Column Toggle tables
@@ -800,6 +800,11 @@ if( Tablesaw.mustard ) {
 			.bind( "tablesawcolumns.swipetoggle", function(){
 				$prevBtn[ canAdvance( getPrev() ) ? "removeClass" : "addClass" ]( hideBtn );
 				$nextBtn[ canAdvance( getNext() ) ? "removeClass" : "addClass" ]( hideBtn );
+				if (!canAdvance(getPrev()) && !canAdvance(getNext())) {		
+					$btns.parent().addClass("hide-swipe-btns");		
+				} else {		
+					$btns.parent().removeClass("hide-swipe-btns");			
+				}
 			})
 			.bind( "tablesawnext.swipetoggle", function(){
 				advance( true );
